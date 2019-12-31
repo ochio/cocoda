@@ -1,3 +1,15 @@
 {
-  "editor.renderWhitespace": "boundary"
+  "editor.renderWhitespace": "boundary",
+  "editor.insertSpaces": false,
+  "editor.detectIndentation": false, 
+  "editor.tabSize": 2,
+  "css.validate": false,
+  "scss.validate": false,
+  "[css]": {
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "stylelint.autoFixOnSave": true
 }

@@ -1,20 +1,20 @@
-.title{
-  padding:15px 0;
-  background: #F8F8F8;
-  &_head{
+.title {
+  padding: 15px 0;
+  background: #f8f8f8;
+  &_head {
+    position: relative;
     font-size: 1.8rem;
     text-align: center;
-    position: relative;
-    &::after{
-      content: '';
-      display: inline-block;
-      width:28px;
-      height:28px;
-      background-image: url(../img/search.jpg);
-      background-size: contain;
+    &::after {
       position: absolute;
+      top: -5px;
       right: 0;
-      top: -5px; 
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      content: "";
+      background-image: url(../img/search.png);
+      background-size: contain;
     }
   }
 }

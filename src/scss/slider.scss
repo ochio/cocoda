@@ -1,0 +1,51 @@
+.slider {
+  width: 100%;
+  &_img {
+    width: 100%;
+  }
+  &_itemNameInner {
+    padding: 11px 0 8px 15px;
+  }
+  &_itemName {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+  &_shopName {
+    font-size: 1.2rem;
+    line-height: 1.1;
+    color: #8e8e93;
+    &::before {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      padding-right: 5px;
+      vertical-align: middle;
+      content: "";
+      background-image: url(../img/mv_stb_icon.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.slick {
+  &-dots {
+    padding: 4px 0;
+    background: #f5f5f5;
+    & li.slick-active button:before {
+      color: #f08804;
+      opacity: 0.75;
+    }
+    & li button:before {
+      top: 8px;
+      width: 10px;
+      height: 4px;
+      content: "";
+      background-color: #f08804;
+    }
+  }
+  &-next {
+    right: 0;
+  }
+}

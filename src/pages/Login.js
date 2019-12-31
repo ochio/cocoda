@@ -17,8 +17,8 @@ class Login extends Component {
             <button type="submit" >ログイン</button>
           </form>
         </div>
-        <a href="#">パスワードをお忘れの方</a>
-        <a href="#">アカウントをお持ちでない方</a>
+        <a href="Home">パスワードをお忘れの方</a>
+        <a href="Home">アカウントをお持ちでない方</a>
       </div>
     )
   }
