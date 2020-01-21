@@ -1,0 +1,18 @@
+[
+	{
+		"name": "ドリンクチケット",
+		"img": "src/img/mv_stb.png"
+	},
+	{
+		"name": "フードスイーツ",
+		"img": "src/img/mv_stb.png"
+	},
+	{
+		"name": "コンビニで使える",
+		"img": "src/img/mv_stb.png"
+	},
+	{
+		"name": "webサービス",
+		"img": "src/img/mv_stb.png"
+	}
+]

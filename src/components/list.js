@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 import '../scss/list.scss';
 
+let json = require('../json/items.json');
+console.log(json);
 
-const category = ({items}) => (
-	items = this.props.items,
-	<li className={items}>{items}</li>
-)
 
 class List extends Component {
-	items = this.props.items
+	constructor(){
+		super();
+		this.state = ({
+			data:[]
+		})
+	}
+
+	setData(){
+		this.setState({data: json})
+		console.log(this.data);
+	}
 
   render(){
+		const data = (state) => {
+		const category = state.data.map((category, index) => <li key={index} >{category}</li>)
+		return <ul><category /></ul>
+		}
+
     return (
 			<div>
-				<h2>{this.props.category}</h2>
-				<ul>
-					{items = "shop"}
-				</ul>
+				<h2>{this.props.title}</h2>
+				<data />
 			</div>
 		)
   }

@@ -12,7 +12,7 @@ class Home extends Component {
 			<div>
 				<Title  name="HOME" />
 				<SimpleSlider />
-				<List />
+				<List title={"カテゴリーで探す"}/>
 			</div>
     )
   }
