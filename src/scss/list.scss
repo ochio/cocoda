@@ -1,0 +1,52 @@
+.category {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.listWrap {
+  display: flex;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  width: 90px;
+  height: 90px;
+  background-size: contain;
+  &::before {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 90px;
+    height: 90px;
+    content: "";
+    background-color: rgba(33, 37, 41, 0.6);
+  }
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+  &_cover {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #fff;
+  }
+  &_drink {
+    background-image: url(../img/category_drink.png);
+    background-repeat: no-repeat;
+  }
+  &_food {
+    background-image: url(../img/category_food.png);
+    background-repeat: no-repeat;
+  }
+  &_shop {
+    background-image: url(../img/category_shop.png);
+    background-repeat: no-repeat;
+  }
+  &_webService {
+    background-image: url(../img/category_webService.png);
+    background-repeat: no-repeat;
+  }
+}
