@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import '../scss/menu.scss';
-import Icon from 'react-svg-loader!../img/icon_menu.svg'
+import Icon from '../img/icon_menu.svg'
 
 const IconComponent = () => {
 	return <img src={Icon} alt="ホーム" />
