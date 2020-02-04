@@ -1,0 +1,13 @@
+.menu {
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  background: #fcfcfc;
+  text-align: center;
+  &_list {
+    width: 33.3%;
+    font-size: 1rem;
+  }
+}

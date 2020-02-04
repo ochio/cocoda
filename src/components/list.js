@@ -31,6 +31,9 @@ const json = [
 
 class Data extends Component{
 	render(){
+		const listSetting = {
+
+		}
 		return this.props.data.map((json, index) => 
 		<li key={index} className={`list list_${json.className}`}>
 			<div className="list_cover">
@@ -50,8 +53,8 @@ class List extends Component {
 
   render(){
     return (
-			<div>
-				<h2 className="category">{this.props.title}</h2>
+			<div className="search">
+				<h2 className="search_title">{this.props.title}</h2>
 				<ul className="listWrap">
 					<Data data = {json}/>
 				</ul>

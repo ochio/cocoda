@@ -1,10 +1,17 @@
-.category {
-  font-size: 1.4rem;
-  font-weight: bold;
+.search {
+  padding: 16px 0 16px 16px;
+  margin-bottom: 30px;
+  background: #fcfcfc;
+  &_title {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
 }
 
 .listWrap {
   display: flex;
+  overflow-x: scroll;
 }
 
 .list {

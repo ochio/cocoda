@@ -11,7 +11,7 @@ import iconStb from '../img/mv_stb_icon.png';
 
 class SimpleSlider extends React.Component {
   render() {
-    var settings = {
+    const mvSettings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -19,7 +19,7 @@ class SimpleSlider extends React.Component {
       slidesToScroll: 1
     };
     return (
-      <Slider {...settings}>
+      <Slider {...mvSettings}>
           <div>
             <div>
               <img className="slider_img" src={mvStb} alt="スターバックス"/>
