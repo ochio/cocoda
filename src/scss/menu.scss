@@ -1,13 +1,16 @@
 .menu {
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   z-index: 999;
   display: flex;
   width: 100%;
-  background: #fcfcfc;
+  padding: 32px 0 5px 0;
   text-align: center;
+  background: #fcfcfc;
   &_list {
     width: 33.3%;
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 }

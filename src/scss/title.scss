@@ -8,7 +8,7 @@
     &::after {
       position: absolute;
       top: -5px;
-      right: 0;
+      right: 10px;
       display: inline-block;
       width: 28px;
       height: 28px;
@@ -16,5 +16,21 @@
       background-image: url(../img/search.png);
       background-size: contain;
     }
+  }
+}
+
+.back {
+  position: relative;
+  &::before {
+    position: absolute;
+    left: 5px;
+    display: inline-block;
+    width: 24px;
+    height: 21px;
+    vertical-align: middle;
+    content: "";
+    background-image: url(../img/icon_back.png);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }

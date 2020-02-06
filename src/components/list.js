@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import Slider from 'react-slick';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../scss/list.scss';
+
 
 // import category1 from '../img/category_drink.png';
 // import category2 from '../img/category_food.png';
@@ -32,7 +37,11 @@ const json = [
 class Data extends Component{
 	render(){
 		const listSetting = {
-
+			dots: true,
+			infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1
 		}
 		return this.props.data.map((json, index) => 
 		<li key={index} className={`list list_${json.className}`}>

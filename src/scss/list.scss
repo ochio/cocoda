@@ -20,15 +20,7 @@
   width: 90px;
   height: 90px;
   background-size: contain;
-  &::before {
-    position: absolute;
-    z-index: 0;
-    display: block;
-    width: 90px;
-    height: 90px;
-    content: "";
-    background-color: rgba(33, 37, 41, 0.6);
-  }
+
   &:not(:last-child) {
     margin-right: 10px;
   }
@@ -39,6 +31,15 @@
     justify-content: center;
     width: 100%;
     color: #fff;
+    &::before {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      width: 90px;
+      height: 90px;
+      content: "";
+      background-color: rgba(33, 37, 41, 0.6);
+    }
   }
   &_drink {
     background-image: url(../img/category_drink.png);
