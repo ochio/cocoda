@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../scss/list.scss';
+import '../scss/search.scss';
 
 import Item from '../pages/Item'
 
@@ -49,10 +49,11 @@ class List extends Component {
 		const carousel = json.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
-			
-				<div className="list_cover">
-					<p>{json.name}</p>
-				</div>
+				<Link to="/item" className="list_link">
+					<div className="list_cover">
+						<p>{json.name}</p>
+					</div>
+				</Link>
 			</div>)
 			});
 

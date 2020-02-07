@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Login from './pages/Login'
 import Home from './pages/Home'
@@ -7,10 +8,13 @@ import Item from './pages/Item'
 
 function App() {
   return (
-		
-    // <Login />
-		<Home />
-		// <Item />
+			<BrowserRouter>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route path="/login" component={Login} />
+					<Route path="/item" component={Item} />
+				</Switch>
+			</BrowserRouter>
   );
 }
 
