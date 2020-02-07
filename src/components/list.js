@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../scss/list.scss';
 
+import Item from '../pages/Item'
 
 // import category1 from '../img/category_drink.png';
 // import category2 from '../img/category_food.png';
@@ -48,7 +49,7 @@ class List extends Component {
 		const carousel = json.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
-				<Link to="/item"></Link>
+			
 				<div className="list_cover">
 					<p>{json.name}</p>
 				</div>
@@ -58,18 +59,12 @@ class List extends Component {
     return (
 			<div className="search">
 				<h2 className="search_title">{this.props.title}</h2>
-				<div className="listWrap">aaaa
-					<Router>
+				<div className="listWrap">
 						<Slider {...listSetting}>
 							{carousel}
 						</Slider>
-					</Router>
 				</div>
-				<Switch>
-					<Route path="/item">
-						<Item />
-					</Route>
-				</Switch>
+				
 			</div>
 		)
   }
