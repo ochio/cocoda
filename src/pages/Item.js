@@ -9,7 +9,7 @@ class Item extends Component {
 			<div>
 				<Title  name="商品詳細" />
 					<div className="priceArea">
-						<h2>{this.props.item}</h2>
+						<h2>{this.props.itemName}</h2>
 						<h3>{this.props.company}</h3>
 						<img src={this.props.img} alt={this.props.company} />
 						<div className="priceSelect">

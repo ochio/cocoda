@@ -1,5 +1,5 @@
 .menu {
-  // position: fixed;
+  position: fixed;
   bottom: 0;
   z-index: 999;
   display: flex;
@@ -8,9 +8,9 @@
   text-align: center;
   background: #fcfcfc;
   &_list {
-    width: 33.3%;
-    font-size: 1rem;
     display: flex;
     flex-direction: column;
+    width: 33.3%;
+    font-size: 1rem;
   }
 }

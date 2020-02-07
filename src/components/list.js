@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
@@ -42,7 +42,7 @@ class List extends Component {
 			dots: false,
 			infinite: false,
 			speed: 500,
-			slidesToShow: 3,
+			slidesToShow: 3.5,
 			slidesToScroll: 1
 		}
 

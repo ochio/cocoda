@@ -2,6 +2,9 @@
   padding: 16px 0 16px 16px;
   margin-bottom: 30px;
   background: #fcfcfc;
+  &:last-of-type {
+    margin-bottom: 60px;
+  }
   &_title {
     margin-bottom: 8px;
     font-size: 1.4rem;
