@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
@@ -48,6 +48,7 @@ class List extends Component {
 		const carousel = json.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
+				<Link to="/item"></Link>
 				<div className="list_cover">
 					<p>{json.name}</p>
 				</div>
@@ -57,12 +58,18 @@ class List extends Component {
     return (
 			<div className="search">
 				<h2 className="search_title">{this.props.title}</h2>
-				<div className="listWrap">
-					<Slider {...listSetting}>
-						{/* <Data data = {json}/> */}
-						{carousel}
-					</Slider>
+				<div className="listWrap">aaaa
+					<Router>
+						<Slider {...listSetting}>
+							{carousel}
+						</Slider>
+					</Router>
 				</div>
+				<Switch>
+					<Route path="/item">
+						<Item />
+					</Route>
+				</Switch>
 			</div>
 		)
   }

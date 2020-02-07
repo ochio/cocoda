@@ -4,7 +4,7 @@ import '../scss/home.scss';
 
 import Title from '../components/title';
 import SimpleSlider from  '../components/Slider';
-import List from '../components/List';
+import List from '../components/list';
 import Menu from '../components/Menu'
 
 class Home extends Component {
