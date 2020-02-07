@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import '../scss/slider.scss'
 
 import mvStb from '../img/mv_stb.png';
-import iconStb from '../img/mv_stb_icon.png';
+// import iconStb from '../img/mv_stb_icon.png';
 
 class SimpleSlider extends React.Component {
   render() {

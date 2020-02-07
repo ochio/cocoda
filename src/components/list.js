@@ -34,39 +34,34 @@ const json = [
 	}
 ]
 
-class Data extends Component{
-	render(){
+class List extends Component {
+  render(){
 		const listSetting = {
-			dots: true,
-			infinite: true,
+			dots: false,
+			infinite: false,
 			speed: 500,
-			slidesToShow: 1,
+			slidesToShow: 3,
 			slidesToScroll: 1
 		}
-		return this.props.data.map((json, index) => 
-		<li key={index} className={`list list_${json.className}`}>
-			<div className="list_cover">
-				<p>{json.name}</p>
-			</div>
-		</li>)
-	}
-}
 
-class List extends Component {
-	constructor(){
-		super();
-		this.state = ({
-			data:json
-		})
-	}
+		const carousel = json.map((json, index) => {
+			return (
+			<div key={index} className={`list list_${json.className}`}>
+				<div className="list_cover">
+					<p>{json.name}</p>
+				</div>
+			</div>)
+			});
 
-  render(){
     return (
 			<div className="search">
 				<h2 className="search_title">{this.props.title}</h2>
-				<ul className="listWrap">
-					<Data data = {json}/>
-				</ul>
+				<div className="listWrap">
+					<Slider {...listSetting}>
+						{/* <Data data = {json}/> */}
+						{carousel}
+					</Slider>
+				</div>
 			</div>
 		)
   }
