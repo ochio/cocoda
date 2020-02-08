@@ -49,7 +49,7 @@ class List extends Component {
 		const carousel = json.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
-				<Link to="/item" className="list_link">
+				<Link to="/item" className="list_link" >
 					<div className="list_cover">
 						<p>{json.name}</p>
 					</div>
