@@ -3,7 +3,7 @@
 		"id": "0",
 		"name": "ドリンクチケット",
 		"company":"スターバックス",
-		"img": "Coffee",
+		"img": "item_coffee.png",
 		"className": "drink"
 	},
 	{
