@@ -1,0 +1,30 @@
+[
+	{
+		"id": "0",
+		"name": "ドリンクチケット",
+		"company":"スターバックス",
+		"img": "Coffee",
+		"className": "drink"
+	},
+	{
+		"id": "1",
+		"name": "フードスイーツ",
+		"company": "サンマルクカフェ",
+		"img": "src/img/category_food.png",
+		"className": "food"
+	},
+	{
+		"id": "2",
+		"name": "コンビニで使える",
+		"company": "ハーゲンダッツ",
+		"img": "src/img/category_shop.png",
+		"className": "shop"
+	},
+	{
+		"id": "3",
+		"name": "webサービス",
+		"company": "NETFLIX",
+		"img": "src/img/category_webService.png",
+		"className": "webService"
+	}
+]

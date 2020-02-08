@@ -1,42 +1,30 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../scss/search.scss';
 
-import Item from '../pages/Item'
-
-// import category1 from '../img/category_drink.png';
-// import category2 from '../img/category_food.png';
-// import category3 from '../img/category_shop.png';
-// import category4 from '../img/category_webService.png';
-
-const json = [
-	{
-		name: "ドリンクチケット",
-		img: "src/img/category_drink.png",
-		className: "drink"
-	},
-	{
-		name: "フードスイーツ",
-		img: "src/img/category_food.png",
-		className: "food"
-	},
-	{
-		name: "コンビニで使える",
-		img: "src/img/category_shop.png",
-		className: "shop"
-	},
-	{
-		name: "webサービス",
-		img: "src/img/category_webService.png",
-		className: "webService"
-	}
-]
+import ItemsJson from '../json/items';
 
 class List extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			name:"",
+			itemName:"",
+			company: "",
+		}
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(){
+		this.props.history.push({
+			pathname: "/item",
+		})
+	}
+
   render(){
 		const listSetting = {
 			dots: false,
@@ -46,12 +34,13 @@ class List extends Component {
 			slidesToScroll: 1
 		}
 
-		const carousel = json.map((json, index) => {
+		const carousel = ItemsJson.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
-				<Link to="/item" className="list_link" >
+				<Link to={`/item/${json.id}`} className="list_link" >
 					<div className="list_cover">
 						<p>{json.name}</p>
+						{console.log(this.props.match)}
 					</div>
 				</Link>
 			</div>)
@@ -71,4 +60,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default withRouter(List)

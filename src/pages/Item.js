@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 
 import Title from '../components/title';
-import Menu from '../components/Menu'
+import Menu from '../components/Menu';
+
+import ItemsJson from '../json/items';
+
+import Coffee from '../img/item_coffee.png';
+
 
 class Item extends Component {
   render(){
+		const {params} = this.props.match;
+		const id = parseInt(params.id, 10);
+		const target = ItemsJson.filter(item => item.id === `${id}`)[0];
+		console.log(target)
     return(
 			<div>
 				<Title  name="商品詳細" />
 					<div className="priceArea">
-						<h2>{this.props.itemName}</h2>
-						<h3>{this.props.company}</h3>
-						<img src={this.props.img} alt={this.props.company} />
+						<h2>{target.name}</h2>
+						<h3>{target.company}</h3>
+						<img src={target.img} alt={target.company} />
 						<div className="priceSelect">
 							<p>金額を選ぶ</p>
 							<ul>
