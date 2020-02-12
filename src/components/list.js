@@ -40,7 +40,6 @@ class List extends Component {
 				<Link to={`/item/${json.id}`} className="list_link" >
 					<div className="list_cover">
 						<p>{json.name}</p>
-						{console.log(this.props.match)}
 					</div>
 				</Link>
 			</div>)

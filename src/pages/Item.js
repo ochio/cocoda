@@ -8,16 +8,30 @@ import ItemsJson from '../json/items';
 
 import '../scss/item.scss';
 
-// import Coffee from '../img/item_coffee.png';
-
 
 class Item extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			error : "",
+			isSubmitEnabled: true
+		}
+		this.handleError = this.handleError.bind(this)
+	}
+	handleSubmit(e){
+		this.setState({
+			isSubmitEnabled : e.target.checked ? false : true
+		})
+	}
+
   render(){
 		const {params} = this.props.match;
 		const id = parseInt(params.id, 10);
 		const target = ItemsJson.filter(item => item.id === `${id}`)[0];
+		const date = new Date();
+		date.setMonth(date.getMonth() + 1);
+		date.setFullYear(date.getFullYear() + 1);
 
-		console.log(target)
     return(
 			<div className="itemWrap">
 				<Title  name="商品詳細" />
@@ -41,23 +55,30 @@ class Item extends Component {
 					</div>
 					<div className="rule">
 						<div className="rule_limitWrap">
-							<p>{target.company}</p>
-							<p>有効期限:今から一年後に設定する</p>
+							<p className="rule_company">{target.company}</p>
+							<p className="rule_limit">有効期限:{date.toLocaleDateString()}</p>
 						</div>
-						<div className="rule_deatil">
-							テキストが入ります
+						<div className="rule_detail">
+						スターバックスの店舗にて、お好きなドリンク1杯(税込500円まで)とお引替えいただけるチケットです。<br/>
+						チケットの有効期限は、購入日から4ヶ月後の月末となります。<br/>
+						お会計の際にレジにてギフトチケット画面をご提示または印刷してお持ちください。ドリンク代が500円（税込）を超える場合は、超えた金額をお支払ください。また、つり銭はご容赦ください。
 						</div>
 						<div className="rule_terms">
 						すでにアカウントをお持ちの方は、月額料金のお支払いにご利用いただけます。初めての方も、このカードをご利用のうえご入会ください。今すぐお持ちのデバイスでお楽しみいただけます。<br/>
-						<span>
+						<span className="rule_terms-red">
 						※この商品は、ドコモ払い、ソフトバンクまとめて支払い・ワイモバイルまとめて支払いをご利用いただけません。<br/>
 						※iTunesまたはGoogle Play経由でお支払いをされているNetflixアカウントでは、プリペイド・ギフトカードをご利用いただけません。
 						プリペイド・ギフトカードを利用してアカウントの再登録を行っていただく必要がございます。<br/>
 						</span>
 						</div>
-						<form>
-							<label><input type="checkbox" name="agree" value="agreed" />利用規約に同意する</label>
-							<input type="submit" value="このギフトを送る"/>
+						<form className="rule_form">
+							<div className="rule_checkbox">
+								<label><input type="checkbox" name="agree" value="agreed" className="rule_agreeBtn" onClick={e => this.handleSubmit(e)}/>利用規約に同意する</label>
+							</div>
+							{this.state.error}
+							<button type="submit" className="rule_submit" disabled={this.state.isSubmitEnabled} onClick={this.handleError}>
+							このギフトを送る
+							</button>
 						</form>
 					</div>
 				<Menu />
