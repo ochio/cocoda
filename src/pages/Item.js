@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Title from '../components/title';
 import Menu from '../components/Menu';
@@ -16,7 +17,6 @@ class Item extends Component {
 			error : "",
 			isSubmitEnabled: true
 		}
-		this.handleError = this.handleError.bind(this)
 	}
 	handleSubmit(e){
 		this.setState({
@@ -24,6 +24,10 @@ class Item extends Component {
 		})
 	}
 
+	handleToSettingPage = () => {
+    this.props.history.push('/message')
+	}
+	
   render(){
 		const {params} = this.props.match;
 		const id = parseInt(params.id, 10);
@@ -76,7 +80,7 @@ class Item extends Component {
 								<label><input type="checkbox" name="agree" value="agreed" className="rule_agreeBtn" onClick={e => this.handleSubmit(e)}/>利用規約に同意する</label>
 							</div>
 							{this.state.error}
-							<button type="submit" className="rule_submit" disabled={this.state.isSubmitEnabled} onClick={this.handleError}>
+							<button type="submit" className="rule_submit" disabled={this.state.isSubmitEnabled} onClick={this.handleToSettingPage} >
 							このギフトを送る
 							</button>
 						</form>
@@ -87,4 +91,4 @@ class Item extends Component {
   }
 }
 
-export default Item
+export default withRouter(Item)
