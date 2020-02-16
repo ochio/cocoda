@@ -5,6 +5,7 @@ import '../scss/message.scss';
 
 import Title from '../components/title';
 import Menu from '../components/Menu';
+import Process from '../components/Process';
 
 import Cheers from '../img/cardType_cheers.png';
 import Birthday from '../img/cardType_birthday.png';
@@ -17,16 +18,25 @@ import Cheers02 from '../img/cardType_cheers02.png';
 
 class Message extends Component {
   render(){
-		const setting = {
+		const categorySetting = {
 			dots: false,
 			infinite: false,
 			speed: 500,
 			slidesToShow: 4.2,
-			slidesToScroll: 1
+			slidesToScroll: 1,
+		}
+		const setting = {
+			dots: false,
+			infinite: false,
+			speed: 500,
+			slidesToShow: 3.2,
+			slidesToScroll: 1,
+			rows: 2,
 		}
     return(
 			<div className="messageWrap">
 				<Title  name="ギフトカードを作成" />
+				<Process />
 				<div>
 					<p>選択中のギフト</p>
 					<div>
@@ -35,7 +45,7 @@ class Message extends Component {
 				</div>
 				<div>
 					<p>カードを選ぶ</p>
-					<Slider {...setting}>
+					<Slider {...categorySetting}>
 						<div>全て</div>
 						<div>誕生日</div>
 						<div>結婚祝い</div>
@@ -43,14 +53,14 @@ class Message extends Component {
 						<div>季節物</div>
 					</Slider>
 					<Slider {...setting}>
-						<div><img src={Cheers} /></div>
-						<div><img src={Birthday} /></div>
-						<div><img src={Birthday02} /></div>
-						<div><img src={Wedding} /></div>
-						<div><img src={Foryou} /></div>
-						<div><img src={Foryou02} /></div>
-						<div><img src={Congratulate} /></div>
-						<div><img src={Cheers02} /></div>
+						<div className="message_imgWrap"><img className="message_img" src={Cheers} alt="Cheers"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Birthday} alt="Birthday"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Birthday02} alt="Birthday02"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Wedding} alt="Wedding"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Foryou} alt="Foryou"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Foryou02} alt="Foryou02"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Congratulate} alt="Congratulate"/></div>
+						<div className="message_imgWrap"><img className="message_img" src={Cheers02} alt="Cheers02"/></div>
 					</Slider>
 				</div>
 				<Menu />
