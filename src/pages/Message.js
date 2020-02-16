@@ -22,7 +22,7 @@ class Message extends Component {
 			dots: false,
 			infinite: false,
 			speed: 500,
-			slidesToShow: 4.2,
+			slidesToShow: 3.9,
 			slidesToScroll: 1,
 		}
 		const setting = {
@@ -37,34 +37,39 @@ class Message extends Component {
 			<div className="messageWrap">
 				<Title  name="ギフトカードを作成" />
 				<Process />
-				<div>
-					<p>選択中のギフト</p>
-					<div>
-						<div></div>
+				<section className="messageInner">
+					<div className="gift">
+						<p className="heading">選択中のギフト</p>
+						<div>
+							<div></div>
+						</div>
 					</div>
-				</div>
-				<div>
-					<p>カードを選ぶ</p>
-					<Slider {...categorySetting}>
-						<div>全て</div>
-						<div>誕生日</div>
-						<div>結婚祝い</div>
-						<div>お見舞い</div>
-						<div>季節物</div>
-					</Slider>
-					<Slider {...setting}>
-						<div className="message_imgWrap"><img className="message_img" src={Cheers} alt="Cheers"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Birthday} alt="Birthday"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Birthday02} alt="Birthday02"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Wedding} alt="Wedding"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Foryou} alt="Foryou"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Foryou02} alt="Foryou02"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Congratulate} alt="Congratulate"/></div>
-						<div className="message_imgWrap"><img className="message_img" src={Cheers02} alt="Cheers02"/></div>
-					</Slider>
-				</div>
-				<Menu />
+					<div className="cards">
+						<p className="heading">カードを選ぶ</p>
+						<section className="cards_lists">
+							<Slider {...categorySetting}>
+								<div className="cards_list">全て</div>
+								<div className="cards_list">誕生日</div>
+								<div className="cards_list">結婚祝い</div>
+								<div className="cards_list">お見舞い</div>
+								<div className="cards_list">季節物</div>
+							</Slider>
+						</section>
+						<Slider {...setting}>
+							<div className="message_imgWrap"><img className="message_img" src={Cheers} alt="Cheers"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Birthday} alt="Birthday"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Birthday02} alt="Birthday02"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Wedding} alt="Wedding"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Foryou} alt="Foryou"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Foryou02} alt="Foryou02"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Congratulate} alt="Congratulate"/></div>
+							<div className="message_imgWrap"><img className="message_img" src={Cheers02} alt="Cheers02"/></div>
+						</Slider>
+					</div>
+					<Menu />
+				</section>
 			</div>
+
     )
   }
 }
