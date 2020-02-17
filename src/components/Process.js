@@ -8,13 +8,11 @@ class Process extends Component {
 		this.state = {
 			url: window.location.pathname.replace("/", "")
 		}
-		console.log(this.state.url)
 	}
 
 	componentDidMount() {
 		const active = document.getElementById(`${this.state.url}`)
 		active.classList.add('process_step-active')
-		console.log(active)
 	}
 
 	render(){
