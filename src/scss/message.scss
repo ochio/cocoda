@@ -11,6 +11,30 @@
   &_imgWrap:nth-child(2n-1) {
     margin-bottom: 8px;
   }
+  &_radio[type="radio"] {
+    display: none;
+    &:checked {
+      & + .message_innerImg {
+        position: relative;
+        width: 100px;
+        &::after {
+          position: absolute;
+          right: 6px;
+          bottom: 6px;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          content: "";
+          background-image: url(../img/step_checked.png);
+          background-size: contain;
+        }
+        .message_img {
+          box-sizing: border-box;
+          border: 1px solid #212529;
+        }
+      }
+    }
+  }
   &_img {
     width: 100px;
   }

@@ -54,15 +54,13 @@
     font-size: 1.4rem;
     line-height: 1.2;
   }
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-input[type="radio"]:checked + label {
-  color: #ffffff;
-  background: #f08804;
+  &_radio[type="radio"] {
+    display: none;
+    &:checked + .priceSelect_choice {
+      color: #ffffff;
+      background: #f08804;
+    }
+  }
 }
 
 .rule {
