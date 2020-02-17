@@ -17,6 +17,21 @@ import Congratulate from '../img/cardType_congratulate.png';
 import Cheers02 from '../img/cardType_cheers02.png';
 
 class Message extends Component {
+
+	componentDidMount(){
+		const ele = document.getElementsByClassName("message_imgWrap");
+		const ary = Array.from(ele);
+		let data = [];
+		for(let i = 0; i < ary.length; i++){
+			data.push(ary[i].dataset.type)
+		}
+		let counts = {};
+		for(let i = 0; i < data.length; i++){
+			let key = data[i];
+			counts[key] = (counts[key])? counts[key] + 1 : 1;
+		}
+	}
+
   render(){
 		const categorySetting = {
 			dots: false,
@@ -33,6 +48,8 @@ class Message extends Component {
 			slidesToScroll: 1,
 			rows: 2,
 		}
+
+		
     return(
 			<div className="messageWrap">
 				<Title  name="ギフトカードを作成" />
@@ -52,19 +69,61 @@ class Message extends Component {
 								<div className="cards_list">誕生日</div>
 								<div className="cards_list">結婚祝い</div>
 								<div className="cards_list">お見舞い</div>
-								<div className="cards_list">季節物</div>
+								<div className="cards_list">その他</div>
 							</Slider>
 						</section>
-						<Slider {...setting}>
-							<div className="message_imgWrap"><img className="message_img" src={Cheers} alt="Cheers"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Birthday} alt="Birthday"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Birthday02} alt="Birthday02"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Wedding} alt="Wedding"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Foryou} alt="Foryou"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Foryou02} alt="Foryou02"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Congratulate} alt="Congratulate"/></div>
-							<div className="message_imgWrap"><img className="message_img" src={Cheers02} alt="Cheers02"/></div>
-						</Slider>
+						<form>
+							<Slider {...setting}>
+								<label className="message_imgWrap" data-type="cheers">
+									<input type="radio" name="type" className="message_radio" className="message_radio"/>
+									<div className="message_innerImg">
+										<img className="message_img" src={Cheers} alt="Cheers"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="birthday">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+										<img className="message_img" src={Birthday} alt="Birthday"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="birthday">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+										<img className="message_img" src={Birthday02} alt="Birthday02"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="wedding">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+										<img className="message_img" src={Wedding} alt="Wedding"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="foryou">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+									<img className="message_img" src={Foryou} alt="Foryou"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="foryou">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+									<img className="message_img" src={Foryou02} alt="Foryou02"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="congratulate">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+									<img className="message_img" src={Congratulate} alt="Congratulate"/>
+									</div>
+								</label>
+								<label className="message_imgWrap" data-type="cheers">
+									<input type="radio" name="type" className="message_radio"/>
+									<div className="message_innerImg">
+									<img className="message_img" src={Cheers02} alt="Cheers02"/>
+									</div>
+								</label>
+							</Slider>
+						</form>
 					</div>
 					<Menu />
 				</section>
