@@ -49,11 +49,11 @@ class Item extends Component {
 					<div className="priceSelect">
 						<p className="priceSelect_text">金額を選ぶ</p>
 						<form name="price" className="priceSelect_list">
-							<input id="2,000" type="radio" name="price" value="2,000"/>
+							<input id="2,000" type="radio" name="price" value="2,000" className="priceSelect_radio"/>
 							<label htmlFor="2,000" className="priceSelect_choice">2,000円<span className="priceSelect_tax">(税込)</span></label>
-							<input id="3,500" type="radio" name="price" value="3,500"/>
+							<input id="3,500" type="radio" name="price" value="3,500" className="priceSelect_radio"/>
 							<label htmlFor="3,500" className="priceSelect_choice">3,500円<span className="priceSelect_tax">(税込)</span></label>
-							<input id="10,000" type="radio" name="price" value="10,000"/>
+							<input id="10,000" type="radio" name="price" value="10,000" className="priceSelect_radio"/>
 							<label htmlFor="10,000" className="priceSelect_choice">10,000円<span className="priceSelect_tax">(税込)</span></label>
 						</form>
 					</div>
