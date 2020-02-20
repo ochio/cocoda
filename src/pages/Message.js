@@ -17,6 +17,12 @@ import Congratulate from '../img/cardType_congratulate.png';
 import Cheers02 from '../img/cardType_cheers02.png';
 
 class Message extends Component {
+	constructor(){
+		super()
+		this.state = {
+			counts:{}
+		}
+	}
 
 	componentDidMount(){
 		const ele = document.getElementsByClassName("message_imgWrap");
@@ -30,6 +36,21 @@ class Message extends Component {
 			let key = data[i];
 			counts[key] = (counts[key])? counts[key] + 1 : 1;
 		}
+		this.setState({
+			counts:{...counts}
+		})
+	}
+
+	sum({...obj}){
+		let sum = 0
+		for (let key in obj){
+			sum  += obj[key] 
+		}
+		return sum
+	}
+
+	handleDisplay(){
+		
 	}
 
   render(){
@@ -40,6 +61,7 @@ class Message extends Component {
 			slidesToShow: 3.9,
 			slidesToScroll: 1,
 		}
+
 		const setting = {
 			dots: false,
 			infinite: false,
@@ -49,9 +71,9 @@ class Message extends Component {
 			rows: 2,
 		}
 
-		
     return(
 			<div className="messageWrap">
+			{/* {console.log(this.state.birthday)} */}
 				<Title  name="ギフトカードを作成" />
 				<Process />
 				<section className="messageInner">
@@ -64,18 +86,34 @@ class Message extends Component {
 					<div className="cards">
 						<p className="heading">カードを選ぶ</p>
 						<section className="cards_lists">
+							
 							<Slider {...categorySetting}>
-								<div className="cards_list">全て</div>
-								<div className="cards_list">誕生日</div>
-								<div className="cards_list">結婚祝い</div>
-								<div className="cards_list">お見舞い</div>
-								<div className="cards_list">その他</div>
+								<label className="cards_select">
+									<input type="radio" name="category" className="cards_radio"/>
+									<div className="cards_list">全て{this.sum({...this.state.counts})}</div>
+								</label>
+								<label className="cards_select">
+									<input type="radio" name="category" className="cards_radio"/>
+									<div className="cards_list">誕生日{this.state.counts.birthday + this.state.counts.cheers}</div>
+								</label>
+								<label className="cards_select">
+									<input type="radio" name="category" className="cards_radio"/>
+									<div className="cards_list">結婚祝い{this.state.counts.wedding}</div>
+								</label>
+								<label className="cards_select">
+									<input type="radio" name="category" className="cards_radio"/>
+									<div className="cards_list">お見舞い{this.state.counts.congratulate}</div>
+								</label>
+								<label className="cards_select">
+									<input type="radio" name="category" className="cards_radio"/>
+									<div className="cards_list">その他{this.state.counts.foryou}</div>
+								</label>
 							</Slider>
 						</section>
 						<form>
 							<Slider {...setting}>
 								<label className="message_imgWrap" data-type="cheers">
-									<input type="radio" name="type" className="message_radio" className="message_radio"/>
+									<input type="radio" name="type" className="message_radio"/>
 									<div className="message_innerImg">
 										<img className="message_img" src={Cheers} alt="Cheers"/>
 									</div>

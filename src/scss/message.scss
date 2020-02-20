@@ -69,4 +69,11 @@
     background: #ffffff;
     border-radius: 25px;
   }
+  &_radio[type="radio"] {
+    display: none;
+    &:checked + .cards_list {
+      color: #212529;
+      background: rgba(240, 136, 4, 0.3);
+    }
+  }
 }
