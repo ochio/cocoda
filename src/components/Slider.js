@@ -4,8 +4,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import '../scss/slider.scss'
-
 import mvStb from '../img/mv_stb.png';
 // import iconStb from '../img/mv_stb_icon.png';
 

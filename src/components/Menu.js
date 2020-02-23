@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import '../scss/menu.scss';
 import IconHome from '../img/icon_home.svg'
 import IconHistory from '../img/icon_history.svg'
 import IconMypage from '../img/icon_mypage.svg'

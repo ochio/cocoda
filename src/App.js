@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import Item from './pages/Item'
 import Message from './pages/Message'
 
+import './scss/style.scss';
+
 function App() {
   return (
 			<BrowserRouter>

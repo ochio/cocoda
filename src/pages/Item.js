@@ -6,10 +6,6 @@ import Menu from '../components/Menu';
 
 import ItemsJson from '../json/items';
 
-
-import '../scss/item.scss';
-
-
 class Item extends Component {
 	constructor(props){
 		super(props);

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../scss/process.scss';
-
 class Process extends Component {
 	constructor(props){
 		super(props);

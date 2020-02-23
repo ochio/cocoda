@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../scss/home.scss';
-
 import Title from '../components/title';
 import SimpleSlider from  '../components/Slider';
 import List from '../components/List';
