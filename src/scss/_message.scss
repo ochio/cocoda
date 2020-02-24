@@ -4,9 +4,17 @@
 .messageInner {
   margin-left: 15px;
 }
+
 .message {
   &_imgWrap {
+    display: none;
     width: 100px;
+    animation: sort_clear 0.5s ease -0.3s 1 normal;
+    & .is-selected {
+      display: flex;
+      margin: 0 0.5% 1%;
+      animation: sort_selected 0.5s ease -0.1s 1 forwards;
+    }
   }
   &_imgWrap:nth-child(2n-1) {
     margin-bottom: 8px;
@@ -75,5 +83,45 @@
       color: #212529;
       background: rgba(240, 136, 4, 0.3);
     }
+  }
+}
+
+// 絞り込み
+
+//sort-list
+// .message_imgWrap {
+//   display: none;
+//   animation: sort_clear 0.5s ease -0.3s 1 normal;
+// }
+
+@keyframes sort_clear {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  99% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes sort_selected {
+  0% {
+    opacity: 0;
+  }
+
+  1% {
+    opacity: 1;
+    transform: scale(0.7);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

@@ -1,0 +1,50 @@
+[
+	{
+		"id": "0",
+		"category": "Cheers",
+		"name": "Cheers",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "1",
+		"category": "Birthday",
+		"name": "Birthday",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "2",
+		"category": "Birthday",
+		"name": "Birthday02",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "3",
+		"category": "Wedding",
+		"name": "Wedding",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "4",
+		"category": "Foryou",
+		"name": "Foryou",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "5",
+		"category": "Foryou",
+		"name": "Foryou02",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "6",
+		"category": "Congratulate",
+		"name": "Congratulate",
+		"src":"../img/cardType_cheers.png"
+	},
+	{
+		"id": "7",
+		"category": "Cheers",
+		"name": "Cheers02",
+		"src":"../img/cardType_cheers.png"
+	}
+]
