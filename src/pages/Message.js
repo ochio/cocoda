@@ -116,46 +116,46 @@ class Message extends Component {
 					<div className="cards">
 						<p className="heading">カードを選ぶ</p>
 						<form id={this.state.formId}>
-						<section>
-							<Slider {...categorySetting}>
-								<label className="cards_select">
-									<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="all" onClick={this.filterList}/>
-									<div className="cards_list">全て{this.sum({...this.state.counts})}</div>
-								</label>
-								<label className="cards_select">
-									<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="birthday" onClick={this.filterList}/>
-									<div className="cards_list">誕生日{this.state.counts.Birthday}</div>
-								</label>
-								<label className="cards_select">
-									<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="wedding" onClick={this.filterList}/>
-									<div className="cards_list">結婚祝い{this.state.counts.Wedding}</div>
-								</label>
-								<label className="cards_select">
-									<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="congratulate" onClick={this.filterList}/>
-									<div className="cards_list">お見舞い{this.state.counts.Congratulate}</div>
-								</label>
-								<label className="cards_select">
-									<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="foryou" onClick={this.filterList}/>
-									<div className="cards_list">その他{this.state.counts.Foryou}</div>
-								</label>
-							</Slider>
-						</section>
-						<section className="cardsWrap">
-							<Slider {...setting}>
-								{this.state.initSlides.map((slide,index) => {
-									return (
-										<label className="message_imgWrap js_sort-list" data-sort-item={slide} key={index}>
-											<input type="radio" name="type" className="message_radio"/>
-											<div className="message_innerImg">
-												<img className="message_img" src={imgObj[slide]} alt={slide}/>
-											</div>
-										</label>
-									)
-								})
-								}
-							</Slider>
-						</section>
-						<section className="textInput">
+							<section>
+								<Slider {...categorySetting}>
+									<label className="cards_select">
+										<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="all" onClick={this.filterList}/>
+										<div className="cards_list">全て{this.sum({...this.state.counts})}</div>
+									</label>
+									<label className="cards_select">
+										<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="birthday" onClick={this.filterList}/>
+										<div className="cards_list">誕生日{this.state.counts.Birthday}</div>
+									</label>
+									<label className="cards_select">
+										<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="wedding" onClick={this.filterList}/>
+										<div className="cards_list">結婚祝い{this.state.counts.Wedding}</div>
+									</label>
+									<label className="cards_select">
+										<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="congratulate" onClick={this.filterList}/>
+										<div className="cards_list">お見舞い{this.state.counts.Congratulate}</div>
+									</label>
+									<label className="cards_select">
+										<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="foryou" onClick={this.filterList}/>
+										<div className="cards_list">その他{this.state.counts.Foryou}</div>
+									</label>
+								</Slider>
+							</section>
+							<section className="cardsWrap">
+								<Slider {...setting}>
+									{this.state.initSlides.map((slide,index) => {
+										return (
+											<label className="message_imgWrap js_sort-list" data-sort-item={slide} key={index}>
+												<input type="radio" name="type" className="message_radio"/>
+												<div className="message_innerImg">
+													<img className="message_img" src={imgObj[slide]} alt={slide}/>
+												</div>
+											</label>
+										)
+									})
+									}
+								</Slider>
+							</section>
+							<section className="textInput">
 							<label className="textInput_item">
 								<span className="textInput_head">メッセージを入力</span>
 								<textarea type="textarea" name="message" maxLength="400" cols="40" placeholder="全角400字以内(改行可)" className="textInput_textArea"></textarea>
