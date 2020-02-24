@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 
 import Title from '../components/title';
-import Menu from '../components/Menu';
+// import Menu from '../components/Menu';
 import Process from '../components/Process';
+import SubmitBtn from '../components/SubmitBtn';
 
 import CardsJson from '../json/cards';
 
@@ -32,6 +33,7 @@ class Message extends Component {
 			counts:{},
 			allSlides:[...cateAry],
 			initSlides:[...cateAry],
+			formId:"content"
 		}
 	}
 
@@ -51,6 +53,8 @@ class Message extends Component {
 			counts:{...counts},
 		})
 	}
+
+	
 
 	sum({...obj}){
 		let sum = 0
@@ -73,8 +77,6 @@ class Message extends Component {
 			if(select === 'all') {
 				return	slide
 			}else{
-				console.log(slide.replace(/\d/g, '').toLowerCase())
-				console.log("select",select)
 				return slide.replace(/\d/g, '').toLowerCase() === select
 			}
 		})
@@ -88,6 +90,7 @@ class Message extends Component {
 			speed: 500,
 			slidesToShow: 3.9,
 			slidesToScroll: 1.5,
+			className:"cards_lists"
 		}
 		
 		const setting = {
@@ -97,7 +100,6 @@ class Message extends Component {
 			slidesToShow: 3.2,
 			slidesToScroll: 1,
 			rows: 2,
-			className:"test"
 		}
 			
     return(
@@ -113,8 +115,8 @@ class Message extends Component {
 					</div>
 					<div className="cards">
 						<p className="heading">カードを選ぶ</p>
-						<form>
-						<section className="cards_lists">
+						<form id={this.state.formId}>
+						<section>
 							<Slider {...categorySetting}>
 								<label className="cards_select">
 									<input type="radio" name="category" className="cards_radio js_nav-input" data-sort-nav="all" onClick={this.filterList}/>
@@ -138,6 +140,7 @@ class Message extends Component {
 								</label>
 							</Slider>
 						</section>
+						<section className="cardsWrap">
 							<Slider {...setting}>
 								{this.state.initSlides.map((slide,index) => {
 									return (
@@ -151,18 +154,28 @@ class Message extends Component {
 								})
 								}
 							</Slider>
-							<label>
-								メッセージを入力
-								<input type="textarea" name="message" maxLength="400"　placeholder="全角400字以内(改行可)"/>
+						</section>
+						<section className="textInput">
+							<label className="textInput_item">
+								<span className="textInput_head">メッセージを入力</span>
+								<textarea type="textarea" name="message" maxLength="400" cols="40" placeholder="全角400字以内(改行可)" className="textInput_textArea"></textarea>
 							</label>
-							<label>
-								署名を入力
-								<input type="text" name="sign" maxLength="20" placeholder="全角20字以内"/>
+							<label className="textInput_item">
+								<span className="textInput_head">署名を入力</span>
+								<input type="text" name="sign" maxLength="20" placeholder="全角20字以内" className="textInput_sign"/>
 							</label>
+						</section>
 						</form>
 					</div>
 				</section>
-					<Menu />
+				{/* <div className="submit">
+					<button type="submit"className="submit_text" form="hoge">
+						aaaa
+					</button>
+				</div> */}
+				<SubmitBtn 
+				form={this.state.formId} 
+				text="確認へ進む"/>
 			</div>
 
     )

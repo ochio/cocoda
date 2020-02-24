@@ -16,7 +16,7 @@
       animation: sort_selected 0.5s ease -0.1s 1 forwards;
     }
   }
-  &_imgWrap:nth-child(2n-1) {
+  &_imgWrap {
     margin-bottom: 8px;
   }
   &_radio[type="radio"] {
@@ -59,14 +59,15 @@
   color: #8e8e93;
 }
 
-.slick {
-  &-slider {
-    background: none;
-  }
+.cardsWrap {
+  height: 218px;
+  margin-bottom: 17px;
 }
+
 .cards {
   &_lists {
     margin-bottom: 12px;
+    background: #f5f5f5;
   }
   &_list {
     width: 67px;
@@ -86,42 +87,33 @@
   }
 }
 
-// 絞り込み
-
-//sort-list
-// .message_imgWrap {
-//   display: none;
-//   animation: sort_clear 0.5s ease -0.3s 1 normal;
-// }
-
-@keyframes sort_clear {
-  0% {
-    opacity: 1;
-    transform: scale(1);
+.textInput {
+  &_item {
+    display: flex;
+    flex-direction: column;
   }
-
-  99% {
-    opacity: 0;
-    transform: scale(0.7);
+  &_head {
+    margin-bottom: 7px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #8e8e93;
+    &::after {
+      color: #e65441;
+      content: "*";
+    }
   }
-
-  100% {
-    opacity: 0;
-    transform: scale(0.7);
+  &_textArea {
+    width: 321px;
+    height: 130px;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
   }
-}
-
-@keyframes sort_selected {
-  0% {
-    opacity: 0;
-  }
-
-  1% {
-    opacity: 1;
-    transform: scale(0.7);
-  }
-
-  100% {
-    transform: scale(1);
+  &_sign {
+    padding: 15px 0 15px 12px;
+    margin-bottom: 90px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
   }
 }
