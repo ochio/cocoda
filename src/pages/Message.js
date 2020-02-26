@@ -33,8 +33,33 @@ class Message extends Component {
 			counts:{},
 			allSlides:[...cateAry],
 			initSlides:[...cateAry],
-			formId:"content"
+			formId:"content",
+			value:{
+				type:'',
+				message:'',
+				sign:''
+			}
 		}
+	}
+
+	handleChange(e){
+		const key = e.target.name;
+		const input = e.target.value;
+		const { value } = this.state;
+
+		this.setState({
+			value: {...value, [key]:input}
+		});
+	}
+
+	canSubmit = () => {
+		const { value } = this.state;
+
+		const validInput = Object.values(value).filter(value => {
+					return value === ''
+				}).length === 0
+
+		return validInput
 	}
 
 	componentDidMount(){
@@ -53,8 +78,6 @@ class Message extends Component {
 			counts:{...counts},
 		})
 	}
-
-	
 
 	sum({...obj}){
 		let sum = 0
@@ -145,7 +168,13 @@ class Message extends Component {
 									{this.state.initSlides.map((slide,index) => {
 										return (
 											<label className="message_imgWrap js_sort-list" data-sort-item={slide} key={index}>
-												<input type="radio" name="type" className="message_radio"/>
+												<input 
+												type="radio" 
+												name="type" 
+												value={slide} 
+												className="message_radio" 
+												onChange={(e)=>this.handleChange(e)}
+												/>
 												<div className="message_innerImg">
 													<img className="message_img" src={imgObj[slide]} alt={slide}/>
 												</div>
@@ -156,27 +185,23 @@ class Message extends Component {
 								</Slider>
 							</section>
 							<section className="textInput">
-							<label className="textInput_item">
-								<span className="textInput_head">メッセージを入力</span>
-								<textarea type="textarea" name="message" maxLength="400" cols="40" placeholder="全角400字以内(改行可)" className="textInput_textArea"></textarea>
-							</label>
-							<label className="textInput_item">
-								<span className="textInput_head">署名を入力</span>
-								<input type="text" name="sign" maxLength="20" placeholder="全角20字以内" className="textInput_sign"/>
-							</label>
-						</section>
-						</form>
-					</div>
-				</section>
-				{/* <div className="submit">
-					<button type="submit"className="submit_text" form="hoge">
-						aaaa
-					</button>
-				</div> */}
-				<SubmitBtn 
-				form={this.state.formId} 
-				text="確認へ進む"/>
-			</div>
+								<label className="textInput_item">
+									<span className="textInput_head">メッセージを入力</span>
+									<textarea type="textarea" name="message" maxLength="400" cols="40" placeholder="全角400字以内(改行可)" className="textInput_textArea" value={this.state.value.message} onChange={(e)=>this.handleChange(e)}></textarea>
+								</label>
+								<label className="textInput_item">
+									<span className="textInput_head">署名を入力</span>
+									<input type="text" name="sign" maxLength="20" placeholder="全角20字以内" className="textInput_sign" value={this.state.value.sign} onChange={(e)=>this.handleChange(e)}/>
+								</label>
+							</section>
+							</form>
+						</div>
+					</section>
+					<SubmitBtn 
+					validate={!this.canSubmit()}
+					form={this.state.formId} 
+					text="確認へ進む"/>
+				</div>
 
     )
   }

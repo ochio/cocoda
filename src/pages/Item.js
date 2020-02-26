@@ -14,6 +14,7 @@ class Item extends Component {
 			isSubmitEnabled: true
 		}
 	}
+	
 	handleSubmit(e){
 		this.setState({
 			isSubmitEnabled : e.target.checked ? false : true
