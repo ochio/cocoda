@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { withRouter } from 'react-router-dom';
 
-import Title from '../components/title';
+import Title from '../components/Title';
 // import Menu from '../components/Menu';
 import Process from '../components/Process';
 import SubmitBtn from '../components/SubmitBtn';
+import SelectedItem from '../components/SelectedItem';
 
 import CardsJson from '../json/cards';
 
@@ -27,8 +29,8 @@ for(let i = 0; i < CardsJson.length; i++){
 }
 
 class Message extends Component {
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state = {
 			counts:{},
 			allSlides:[...cateAry],
@@ -38,7 +40,8 @@ class Message extends Component {
 				type:'',
 				message:'',
 				sign:''
-			}
+			},
+			selected:{...this.props.location.state}
 		}
 	}
 
@@ -124,7 +127,7 @@ class Message extends Component {
 			slidesToScroll: 1,
 			rows: 2,
 		}
-			
+			// console.log(this.props.location.state);
     return(
 			<div className="messageWrap">
 				<Title  name="ギフトカードを作成" />
@@ -132,9 +135,7 @@ class Message extends Component {
 				<section className="messageInner">
 					<div className="gift">
 						<p className="heading">選択中のギフト</p>
-						<div>
-							<div></div>
-						</div>
+						<SelectedItem item={this.state.selected.item}/>
 					</div>
 					<div className="cards">
 						<p className="heading">カードを選ぶ</p>
@@ -207,4 +208,4 @@ class Message extends Component {
   }
 }
 
-export default Message
+export default withRouter(Message)

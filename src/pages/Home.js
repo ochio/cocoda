@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Title from '../components/title';
+import Title from '../components/Title';
 import SimpleSlider from  '../components/Slider';
 import List from '../components/List';
 import Menu from '../components/Menu'

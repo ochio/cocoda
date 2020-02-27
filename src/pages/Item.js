@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Title from '../components/title';
+import Title from '../components/Title';
 import Menu from '../components/Menu';
 
 import ItemsJson from '../json/items';
@@ -11,7 +11,9 @@ class Item extends Component {
 		super(props);
 		this.state = {
 			error : "",
-			isSubmitEnabled: true
+			isSubmitEnabled: true,
+			selectedItem :this.props.location.state.selectedItem,
+			price:''
 		}
 	}
 	
@@ -22,7 +24,23 @@ class Item extends Component {
 	}
 
 	handleToSettingPage = () => {
-    this.props.history.push('/message')
+    this.props.history.push({
+			pathname:'/message',
+			state:{
+				item:this.state.selectedItem,
+				price:this.state.price
+			}
+		})
+	}
+
+	handleSelect(e){
+		const price = e.target.value;
+		const key = e.target.name;
+
+		this.setState({
+			...this.state,
+			[key]:price
+		})
 	}
 	
   render(){
@@ -32,6 +50,7 @@ class Item extends Component {
 		const date = new Date();
 		date.setMonth(date.getMonth() + 1);
 		date.setFullYear(date.getFullYear() + 1);
+
 
     return(
 			<div className="itemWrap">
@@ -46,11 +65,11 @@ class Item extends Component {
 					<div className="priceSelect">
 						<p className="priceSelect_text">金額を選ぶ</p>
 						<form name="price" className="priceSelect_list">
-							<input id="2,000" type="radio" name="price" value="2,000" className="priceSelect_radio"/>
+							<input id="2,000" type="radio" name="price" value="2,000" className="priceSelect_radio" onClick={(e)=>this.handleSelect(e)}/>
 							<label htmlFor="2,000" className="priceSelect_choice">2,000円<span className="priceSelect_tax">(税込)</span></label>
-							<input id="3,500" type="radio" name="price" value="3,500" className="priceSelect_radio"/>
+							<input id="3,500" type="radio" name="price" value="3,500" className="priceSelect_radio" onClick={(e)=>this.handleSelect(e)}/>
 							<label htmlFor="3,500" className="priceSelect_choice">3,500円<span className="priceSelect_tax">(税込)</span></label>
-							<input id="10,000" type="radio" name="price" value="10,000" className="priceSelect_radio"/>
+							<input id="10,000" type="radio" name="price" value="10,000" className="priceSelect_radio" onClick={(e)=>this.handleSelect(e)}/>
 							<label htmlFor="10,000" className="priceSelect_choice">10,000円<span className="priceSelect_tax">(税込)</span></label>
 						</form>
 					</div>

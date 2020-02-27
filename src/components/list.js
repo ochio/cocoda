@@ -20,7 +20,7 @@ class List extends Component {
 
 	handleClick(){
 		this.props.history.push({
-			pathname: "/item",
+			pathname: "/item/:id",
 		})
 	}
 
@@ -36,7 +36,12 @@ class List extends Component {
 		const carousel = ItemsJson.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
-				<Link to={`/item/${json.id}`} className="list_link" >
+				<Link to={{
+					pathname:`/item/${json.id}`,
+					state:{
+						selectedItem:json.className
+					}
+					}} className="list_link">
 					<div className="list_cover">
 						<p>{json.name}</p>
 					</div>

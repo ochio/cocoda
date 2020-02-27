@@ -12,20 +12,23 @@
 		"name": "フードスイーツ",
 		"company": "サンマルクカフェ",
 		"img": "src/img/category_food.png",
-		"className": "food"
+		"className": "food",
+		"text":""
 	},
 	{
 		"id": "2",
 		"name": "コンビニで使える",
 		"company": "ハーゲンダッツ",
 		"img": "src/img/category_shop.png",
-		"className": "shop"
+		"className": "shop",
+		"text":""
 	},
 	{
 		"id": "3",
 		"name": "webサービス",
 		"company": "NETFLIX",
 		"img": "src/img/category_webService.png",
-		"className": "webService"
+		"className": "webService",
+		"text":""
 	}
 ]
