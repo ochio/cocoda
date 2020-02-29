@@ -18,7 +18,7 @@ class Process extends Component {
 			<div className="processWrap">
 				<ul className="process">
 					<li id="message" className="process_step">作成</li>
-					<li id="confirm" className="process_step">確認</li>
+					<li id="preview" className="process_step">確認</li>
 					<li id="pay" className="process_step">決済</li>
 					<li id="submit" className="process_step">送信</li>
 				</ul>

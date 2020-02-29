@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import { withRouter } from 'react-router-dom';
 
 import Title from '../components/Title';
-// import Menu from '../components/Menu';
 import Process from '../components/Process';
 import SubmitBtn from '../components/SubmitBtn';
 import SelectedItem from '../components/SelectedItem';
@@ -107,7 +106,20 @@ class Message extends Component {
 			}
 		})
 		this.setState({initSlides:updateSlide})
-  }
+	}
+	
+	handleToPreviewPage = () => {
+    this.props.history.push({
+			pathname:'/preview',
+			state:{
+				item:this.state.selected.item,
+				price:this.state.selected.price,
+				type:this.state.value.type,
+				message:this.state.value.message,
+				sign:this.state.value.sign
+			}
+		})
+	}
 
   render(){
 		const categorySetting = {
@@ -133,10 +145,9 @@ class Message extends Component {
 				<Title  name="ギフトカードを作成" />
 				<Process />
 				<section className="messageInner">
-					<div className="gift">
-						<p className="heading">選択中のギフト</p>
-						<SelectedItem item={this.state.selected.item}/>
-					</div>
+					<SelectedItem 
+						item={this.state.selected.item} 
+						price={this.state.selected.price}/>
 					<div className="cards">
 						<p className="heading">カードを選ぶ</p>
 						<form id={this.state.formId}>
@@ -199,6 +210,7 @@ class Message extends Component {
 						</div>
 					</section>
 					<SubmitBtn 
+					onClick={this.handleToPreviewPage}
 					validate={!this.canSubmit()}
 					form={this.state.formId} 
 					text="確認へ進む"/>

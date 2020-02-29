@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Item from './pages/Item'
 import Message from './pages/Message'
+import Preview from './pages/Preview'
 
 import './scss/style.scss';
 
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/login" component={Login} />
 					<Route path="/item/:id" component={Item}/>
 					<Route path="/message" component={Message}/>
+					<Route path="/preview" component={Preview}/>
 				</Switch>
 			</BrowserRouter>
   );

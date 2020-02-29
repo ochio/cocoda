@@ -1,0 +1,34 @@
+.selectedItem {
+  display: flex;
+  width: 345px;
+  &_img {
+    width: 72px;
+  }
+  &_detail {
+    flex: 1;
+    padding: 10px 8px 8px 10px;
+    background: #ffffff;
+  }
+  &_name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #212529;
+  }
+  &_company {
+    font-size: 1.1rem;
+    line-height: 1.1;
+    color: #8e8e93;
+  }
+  &_price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #212529;
+    text-align: right;
+    &-tax {
+      font-size: 1.1rem;
+      font-weight: normal;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.previewWrap {
+  padding: 0 15px;
+  background: #f5f5f5;
+}
+
+.preview {
+  border: 2px solid #212529;
+  &_img {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+  }
+  &_text {
+    margin: 0 15px 13px;
+  }
+  &_message {
+    padding: 10px 12px;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    background: #fff9e5;
+  }
+  &_sign {
+    font-size: 1.1rem;
+    line-height: 1.1;
+    text-align: right;
+    &-bold {
+      font-weight: bold;
+    }
+  }
+}
