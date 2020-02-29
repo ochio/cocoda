@@ -67,7 +67,7 @@ class Preview extends Component{
 	render(){
 		return (
 			<div className="previewWrap">
-				<Title  name="プレビュー"/>
+				<Title name="プレビュー"/>
 				<Process />
 				<SelectedItem 
 					item={this.state.item} 

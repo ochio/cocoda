@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Item from './pages/Item'
 import Message from './pages/Message'
 import Preview from './pages/Preview'
+import Pay from './pages/Pay'
 
 import './scss/style.scss';
 
@@ -19,6 +20,7 @@ function App() {
 					<Route path="/item/:id" component={Item}/>
 					<Route path="/message" component={Message}/>
 					<Route path="/preview" component={Preview}/>
+					<Route path="/pay" component={Pay}/>
 				</Switch>
 			</BrowserRouter>
   );
