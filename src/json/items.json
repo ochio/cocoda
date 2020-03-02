@@ -4,31 +4,39 @@
 		"name": "ドリンクチケット",
 		"company":"スターバックス",
 		"img": "item_coffee.png",
+		"history": "history_drink.png",
 		"className": "drink",
+		"historyText":"スターバックスドリンク1回分",
 		"text":"スターバックスの店舗にて、お好きなドリンク1杯(税込500円まで)とお引替えいただけるチケットです。&lt;br&gt;チケットの有効期限は、購入日から4ヶ月後の月末となります。\\nお会計の際にレジにてギフトチケット画面をご提示または印刷してお持ちください。ドリンク代が500円（税込）を超える場合は、超えた金額をお支払ください。また、つり銭はご容赦ください。\\n■ご利用上の注意\\n贈り先のスマートフォンが、TLS1.2に対応していない古い端末の場合、チケットを表示できないためご利用いただけません。\\n日本国内のスターバックス店舗でご使用になれます。\\n店舗で引き換える際に店舗内が圏外になる可能性がございます。チケット画面をあらかじめご用意の上、店舗でご利用ください。\\nギフトチケットには、有効期限があります。チケット画面にて期限をお確かめの上、有効期限内にご利用ください。\\n複写、改竄などの不正行為が発生した場合、利用を停止することがございます。"
 	},
 	{
 		"id": "1",
 		"name": "フードスイーツ",
 		"company": "サンマルクカフェ",
-		"img": "src/img/category_food.png",
+		"img": "item_food.png",
+		"history": "history_food.png",
 		"className": "food",
+		"historyText":"チョコマルク",
 		"text":""
 	},
 	{
 		"id": "2",
 		"name": "コンビニで使える",
 		"company": "ハーゲンダッツ",
-		"img": "src/img/category_shop.png",
+		"img": "item_shop.png",
+		"history": "history_shop.png",
 		"className": "shop",
+		"historyText":"ハーゲンダッツ4種類",
 		"text":""
 	},
 	{
 		"id": "3",
 		"name": "webサービス",
 		"company": "NETFLIX",
-		"img": "src/img/category_webService.png",
+		"img": "item_webService.png",
+		"history": "history_webService.png",
 		"className": "webService",
+		"historyText":"Netflixプリペイドギフトカード",
 		"text":""
 	}
 ]

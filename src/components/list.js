@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
@@ -16,12 +16,32 @@ class List extends Component {
 			company: "",
 		}
 		this.handleClick = this.handleClick.bind(this);
+		this.handleSessionStorage = this.handleSessionStorage.bind(this);
+		this.handleFuncs = this.handleFuncs.bind(this);
 	}
 
-	handleClick(){
+	handleClick(json){
 		this.props.history.push({
-			pathname: "/item/:id",
+			pathname: `/item/${json.id}`,
+			state:{
+				selectedItem:json.className
+			}
 		})
+	}
+
+	handleSessionStorage(json){
+		let n = 0;
+		for(let i = 0; i < sessionStorage.length; i++){
+			if(sessionStorage.key(i).indexOf("visited_") !== -1){
+				n++
+			}
+		}
+		sessionStorage.setItem(`visited_${n}`, json.className)
+	}
+
+	handleFuncs(json,index){
+		this.handleClick(json,index)
+		this.handleSessionStorage(json)
 	}
 
   render(){
@@ -36,16 +56,11 @@ class List extends Component {
 		const carousel = ItemsJson.map((json, index) => {
 			return (
 			<div key={index} className={`list list_${json.className}`}>
-				<Link to={{
-					pathname:`/item/${json.id}`,
-					state:{
-						selectedItem:json.className
-					}
-					}} className="list_link">
+				<button onClick={() => this.handleFuncs(json)} className="list_link">
 					<div className="list_cover">
 						<p>{json.name}</p>
 					</div>
-				</Link>
+				</button>
 			</div>)
 			});
 

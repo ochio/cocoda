@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Title from '../components/Title';
 import Process from '../components/Process';
+import SubmitBtn from '../components/SubmitBtn';
 
 import ItemsJson from '../json/items';
 
@@ -15,7 +16,12 @@ class Pay extends Component{
 		this.state = {
 			item:this.props.location.state.item,
 			price:this.props.location.state.price,
-			name:''
+			name:'',
+			num:'',
+			limit_y:'',
+			limit_m:'',
+			security:'',
+
 		}
 	}
 
@@ -24,6 +30,32 @@ class Pay extends Component{
 			val.className === this.state.item)[0]
 		this.setState({
 			name:name
+		})
+	}
+
+	handleChange(e){
+		const val = e.target.value;
+		const key = e.target.name
+		this.setState({
+			[key]:val
+		})
+	}
+
+	canSubmit = () => {
+		const { num, limit_y, limit_m, security } = this.state;
+		let validInput = false;
+		if(num&&limit_y&&limit_m&&security){
+			validInput = true
+		}else{
+			validInput = false
+		}
+
+		return validInput
+	}
+
+	handleToTopPage = () => {
+    this.props.history.push({
+			pathname:'/',
 		})
 	}
 
@@ -46,18 +78,40 @@ class Pay extends Component{
 						<img className="payService_img" src={Line} alt="lineペイ" />
 						<img className="payService_img" src={Apple} alt="appleペイ" />
 					</div>
-					<form>
+					<div className="howWrap">
 						<input type="radio" name="payment" id="pay1" className="how"/>
 						<label className="how_way" htmlFor="pay1">
 							クレジットカード決済
 							<img className="how_img" src={Credit} alt="クレジットカード" />
 						</label>
-						<div className="how_detail">aaaaa</div>
+						<form className="how_detail">
+							<label className="how_label">
+								<span className="how_head">カード番号</span>
+								<input className="how_input how_cardNum" type="text" name="num" pattern="\d*" placeholder="0000 0000 0000 0000" onChange={(e) => this.handleChange(e)}/>
+							</label>
+							<label className="how_label">
+								<span className="how_head">有効期限</span>
+								<div>
+									<input className="how_input how_limit" type="num" name="limit_y" placeholder="mm" onChange={(e) => this.handleChange(e)}/>月/<input className="how_input how_limit" type="num_m" name="limit_m" placeholder="yy" onChange={(e) => this.handleChange(e)}/>まで有効
+								</div>
+							</label>
+							<label className="how_label">
+								<span className="how_head">セキュリティーコード</span>
+								<input className="how_input how_code" type="text" name="security" placeholder="3桁の数字" onChange={(e) => this.handleChange(e)}/>
+							</label>
+						</form>
+					</div>
+					<div className="howWrap">
 						<input type="radio" name="payment" id="pay2" className="how"/>
 						<label className="how_way" htmlFor="pay2">キャリア決済</label>
-						<div className="how_detail">bbbbb</div>
-					</form>
+						<div className="how_detail">ただいま準備中</div>
+					</div>
 				</div>
+				<SubmitBtn 
+					onClick={this.handleToTopPage}
+					validate={!this.canSubmit()}
+					form={this.state.formId} 
+					text="決済する"/>
 			</div>
 		)
 	}

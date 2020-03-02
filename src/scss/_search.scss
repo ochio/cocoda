@@ -12,11 +12,6 @@
   }
 }
 
-// .listWrap {
-//   display: flex;
-//   overflow-x: scroll;
-// }
-
 .list {
   position: relative;
   display: flex;
@@ -44,6 +39,7 @@
     justify-content: center;
     width: 100%;
     color: #fff;
+    white-space: nowrap;
   }
   &_link {
     display: flex;

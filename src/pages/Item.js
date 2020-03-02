@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import Title from '../components/Title';
 import Menu from '../components/Menu';
+import History from '../components/History';
 
 import ItemsJson from '../json/items';
 
@@ -101,6 +102,7 @@ class Item extends Component {
 							</button>
 						</form>
 					</div>
+					{sessionStorage.length ? <History /> : ""}
 				<Menu />
 			</div>
     )

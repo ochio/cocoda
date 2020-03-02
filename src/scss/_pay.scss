@@ -1,9 +1,11 @@
 .payWrap {
+  padding-bottom: 90px;
   background: #f5f5f5;
 }
 
 .payHeading {
   margin-bottom: 12px;
+  margin-left: 15px;
   font-size: 1.4rem;
   line-height: 1.5;
   color: #8e8e93;
@@ -41,30 +43,76 @@
 
 .payInput {
   padding: 12px 0 24px;
+  background: #ffffff;
 }
 
 .payService {
   display: flex;
   justify-content: space-between;
-  margin: 0 15px;
+  margin: 0 15px 14px;
   &_img {
-    width: 168px;
+    width: 45vw;
+  }
+}
+
+.howWrap {
+  padding: 8px 15px 2px;
+  border-top: 1px solid #d9d9d9;
+  &:last-child {
+    border-bottom: 1px solid #d9d9d9;
   }
 }
 
 .how {
+  margin-top: 0;
+  margin-bottom: 8px;
   &_detail {
-    visibility: hidden;
-    opacity: 0;
+    display: none;
+    background: #f5f5f5;
     transition: 0.5s;
   }
   &_way {
-    // display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    color: #212529;
   }
   &:checked + .how_way + .how_detail {
-    height: 40px;
+    display: block;
     padding: 10px;
-    visibility: visible;
-    opacity: 1;
+  }
+  &_img {
+    width: 38vw;
+    margin-left: 39px;
+    vertical-align: middle;
+  }
+  &_label {
+    display: flex;
+    flex-direction: column;
+  }
+  &_head {
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #8e8e93;
+    &::after {
+      color: #e65441;
+      content: "*";
+    }
+  }
+  &_input {
+    margin-bottom: 12px;
+    color: #3f3d56;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+  }
+  &_cardNum {
+    padding: 17px 0 15px 12px;
+  }
+  &_limit {
+    width: 38px;
+    padding: 17px 10px 15px 7px;
+  }
+  &_code {
+    padding: 15px 0 15px 12px;
   }
 }
