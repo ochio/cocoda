@@ -4,7 +4,8 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Login from './pages/Login'
 import Home from './pages/Home'
-import Item from './pages/Item'
+// import Item from './pages/Item'
+import Item from './containers/Item'
 import Message from './pages/Message'
 import Preview from './pages/Preview'
 import Pay from './pages/Pay'
