@@ -4,13 +4,15 @@ import Item from '../pages/Item';
 
 const mapStateToProps = state => {
 	return {
-		price: state.price,
+		price: state.items.price,
+		isSubmitEnabled: state.items.isSubmitEnabled,
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
-		selectPrice: (price) => dispatch(actions.selectPrice(price))
+		selectPrice: (price) => dispatch(actions.selectPrice(price)),
+		checked: (bool) => dispatch(actions.checked(bool))
 	}
 }
 
