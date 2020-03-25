@@ -11,5 +11,8 @@ export default function createStore(){
 			logger
 		)
 	)
+	store.subscribe(() =>
+       console.log("store",store.getState())
+   )
 	return store
 }

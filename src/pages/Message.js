@@ -5,7 +5,8 @@ import { withRouter } from 'react-router-dom';
 import Title from '../components/Title';
 import Process from '../components/Process';
 import SubmitBtn from '../components/SubmitBtn';
-import SelectedItem from '../components/SelectedItem';
+// import SelectedItem from '../components/SelectedItem';
+import SelectedItem from '../containers/SelectedItem.js';
 
 import CardsJson from '../json/cards';
 
@@ -109,11 +110,12 @@ class Message extends Component {
 	}
 	
 	handleToPreviewPage = () => {
+		console.log("ok");
     this.props.history.push({
 			pathname:'/preview',
 			state:{
-				item:this.state.selected.item,
-				price:this.state.selected.price,
+				// item:this.state.selected.item,
+				// price:this.state.selected.price,
 				type:this.state.value.type,
 				message:this.state.value.message,
 				sign:this.state.value.sign
@@ -139,15 +141,12 @@ class Message extends Component {
 			slidesToScroll: 1,
 			rows: 2,
 		}
-			// console.log(this.props.location.state);
     return(
 			<div className="messageWrap">
 				<Title  name="ギフトカードを作成" />
 				<Process />
 				<section className="messageInner">
-					<SelectedItem 
-						item={this.state.selected.item} 
-						price={this.state.selected.price}/>
+					<SelectedItem />
 					<div className="cards">
 						<p className="heading">カードを選ぶ</p>
 						<form id={this.state.formId}>

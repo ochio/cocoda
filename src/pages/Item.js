@@ -12,22 +12,29 @@ class Item extends Component {
 		super(props);
 		this.state = {
 			error : "",
-			// isSubmitEnabled: this.props.isSubmitEnabled,
-			selectedItem :this.props.location.state.selectedItem,
+			isSubmitEnabled: true,
+			selectedItem :this.props.selectedItem,
 		}
+	}
+
+	handleSubmit(e){
+		this.setState({
+			isSubmitEnabled : e.target.checked ? false : true
+		})
 	}
 
 	handleToSettingPage = () => {
     this.props.history.push({
 			pathname:'/message',
 			state:{
-				item:this.state.selectedItem,
-				price:this.state.price
+				// item:this.state.selectedItem,
+				// price:this.state.price
 			}
 		})
 	}
 	
   render(){
+		console.log(this.props);
 		const {params} = this.props.match;
 		const id = parseInt(params.id, 10);
 		const target = ItemsJson.filter(item => item.id === `${id}`)[0];
@@ -77,10 +84,10 @@ class Item extends Component {
 						</div>
 						<form className="rule_form">
 							<div className="rule_checkbox">
-								<label><input type="checkbox" name="agree" value="agreed" className="rule_agreeBtn" onClick={e => this.props.checked(!e.target.checked)}/>利用規約に同意する</label>
+								<label><input type="checkbox" name="agree" value="agreed" className="rule_agreeBtn" onClick={e => this.handleSubmit(e)}/>利用規約に同意する</label>
 							</div>
 							{this.state.error}
-							<button type="submit" className="rule_submit" disabled={this.props.isSubmitEnabled} onClick={this.handleToSettingPage} >
+							<button type="button" className="rule_submit" disabled={this.state.isSubmitEnabled} onClick={this.handleToSettingPage} >
 							このギフトを送る
 							</button>
 						</form>
