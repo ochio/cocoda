@@ -1,18 +1,21 @@
-import { createStore as reduxCreateStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore as reduxCreateStore, applyMiddleware, combineReducers, compose } from 'redux';
 import logger from "redux-logger";
 import { itemReducer } from "./reducers/itemReducer";
+import { inputReducer } from './reducers/inputReducer';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default function createStore(){
 	const store = reduxCreateStore(
 		combineReducers({
-			items: itemReducer
+			items: itemReducer,
+			input: inputReducer
 		}),
-		applyMiddleware(
-			logger
+		composeEnhancers(
+			applyMiddleware(
+				logger
+			)
 		)
 	)
-	store.subscribe(() =>
-       console.log("store",store.getState())
-   )
 	return store
 }

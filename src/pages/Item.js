@@ -7,6 +7,7 @@ import History from '../components/History';
 
 import ItemsJson from '../json/items';
 
+
 class Item extends Component {
 	constructor(props){
 		super(props);
@@ -26,15 +27,12 @@ class Item extends Component {
 	handleToSettingPage = () => {
     this.props.history.push({
 			pathname:'/message',
-			state:{
-				// item:this.state.selectedItem,
-				// price:this.state.price
-			}
 		})
 	}
 	
   render(){
-		console.log(this.props);
+		console.log("props",this.props);
+		console.log("state",this.state);
 		const {params} = this.props.match;
 		const id = parseInt(params.id, 10);
 		const target = ItemsJson.filter(item => item.id === `${id}`)[0];

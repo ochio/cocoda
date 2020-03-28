@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Title from '../components/Title';
 import Process from '../components/Process';
@@ -14,9 +15,10 @@ class Pay extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			item:this.props.location.state.item,
-			price:this.props.location.state.price,
-			name:'',
+			item:this.props.item,
+			price:this.props.price,
+			name:ItemsJson.filter(val =>
+				val.className === this.props.item)[0],
 			num:'',
 			limit_y:'',
 			limit_m:'',
@@ -31,6 +33,7 @@ class Pay extends Component{
 		this.setState({
 			name:name
 		})
+		console.log(this.state);
 	}
 
 	handleChange(e){
@@ -44,7 +47,7 @@ class Pay extends Component{
 	canSubmit = () => {
 		const { num, limit_y, limit_m, security } = this.state;
 		let validInput = false;
-		if(num&&limit_y&&limit_m&&security){
+		if(num&&limit_y&&limit_m&&security.length===3){
 			validInput = true
 		}else{
 			validInput = false
@@ -65,7 +68,7 @@ class Pay extends Component{
 				<Title name="決済"/>
 				<Process />
 				<div className="pay">
-					<p className="payHeading">決済内容</p>
+					<p className="payHeading payHeading_prev">決済内容</p>
 					<div className="pay_detail">
 						<p className="pay_name">{this.state.name.company}&nbsp;&nbsp;{this.state.price}円分</p>
 						<p className="pay_num">数量:1</p>
@@ -108,6 +111,7 @@ class Pay extends Component{
 					</div>
 				</div>
 				<SubmitBtn 
+					buttonType={"orange"}
 					onClick={this.handleToTopPage}
 					validate={!this.canSubmit()}
 					form={this.state.formId} 
@@ -117,4 +121,4 @@ class Pay extends Component{
 	}
 }
 
-export default Pay
+export default withRouter(Pay)

@@ -12,9 +12,23 @@ export const selectPrice = (price) => {
 	}
 }
 
-export const checked = (bool) => {
+export const selectType = (type) => {
 	return {
-		type: 'CHECKED',
-		payload: {isSubmitEnabled: bool}
+		type: 'SELECT_TYPE',
+		payload: {type: type}
+	}
+}
+
+export const inputMessage = (text) => {
+	return {
+		type: 'INPUT_MESSAGE',
+		payload: {message: text}
+	}
+}
+
+export const inputSign = (text) => {
+	return {
+		type: 'INPUT_SIGN',
+		payload: {sign: text}
 	}
 }

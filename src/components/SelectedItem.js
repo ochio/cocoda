@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-
 import ItemsJson from '../json/items';
 
 class SelectedItem extends Component{
 	render(){
 		const item = this.props.selectedItem;
 		const price = this.props.price
-		const target = ItemsJson.filter(content =>
-			content.className === item)[0];
-			console.log(this.props);
-		console.log("target",target);
-		console.log("ItemsJson",ItemsJson);
+		const target = ItemsJson.filter(content => content.className === item)[0]
 
 		return(
 			<div className="gift">

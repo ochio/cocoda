@@ -45,18 +45,11 @@ class Message extends Component {
 		}
 	}
 
-	handleChange(e){
-		const key = e.target.name;
-		const input = e.target.value;
-		const { value } = this.state;
-
-		this.setState({
-			value: {...value, [key]:input}
-		});
-	}
-
 	canSubmit = () => {
-		const { value } = this.state;
+		let value = {}
+		value.type  = this.props.type;
+		value.message  = this.props.message;
+		value.sign  = this.props.sign;
 
 		const validInput = Object.values(value).filter(value => {
 					return value === ''
@@ -110,16 +103,8 @@ class Message extends Component {
 	}
 	
 	handleToPreviewPage = () => {
-		console.log("ok");
     this.props.history.push({
 			pathname:'/preview',
-			state:{
-				// item:this.state.selected.item,
-				// price:this.state.selected.price,
-				type:this.state.value.type,
-				message:this.state.value.message,
-				sign:this.state.value.sign
-			}
 		})
 	}
 
@@ -184,7 +169,7 @@ class Message extends Component {
 												name="type" 
 												value={slide} 
 												className="message_radio" 
-												onChange={(e)=>this.handleChange(e)}
+												onChange={(e)=>this.props.selectType(e.target.value)}
 												/>
 												<div className="message_innerImg">
 													<img className="message_img" src={imgObj[slide]} alt={slide}/>
@@ -198,17 +183,18 @@ class Message extends Component {
 							<section className="textInput">
 								<label className="textInput_item">
 									<span className="textInput_head">メッセージを入力</span>
-									<textarea type="textarea" name="message" maxLength="400" cols="40" placeholder="全角400字以内(改行可)" className="textInput_textArea" value={this.state.value.message} onChange={(e)=>this.handleChange(e)}></textarea>
+									<textarea type="textarea" name="message" maxLength="400" cols="40" placeholder="全角400字以内(改行可)" className="textInput_textArea" value={this.props.message} onChange={(e)=>this.props.inputMessage(e.target.value)}></textarea>
 								</label>
 								<label className="textInput_item">
 									<span className="textInput_head">署名を入力</span>
-									<input type="text" name="sign" maxLength="20" placeholder="全角20字以内" className="textInput_sign" value={this.state.value.sign} onChange={(e)=>this.handleChange(e)}/>
+									<input type="text" name="sign" maxLength="20" placeholder="全角20字以内" value={this.props.sign} className="textInput_sign" onChange={(e)=>this.props.inputSign(e.target.value)}/>
 								</label>
 							</section>
 							</form>
 						</div>
 					</section>
 					<SubmitBtn 
+					buttonType={"orange"}
 					onClick={this.handleToPreviewPage}
 					validate={!this.canSubmit()}
 					form={this.state.formId} 

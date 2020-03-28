@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
-import Item from '../pages/Item';
+import Pay from '../pages/Pay';
 
 const mapStateToProps = state => {
 	return {
-		selectedItem: state.items.selectedItem,
+		item: state.items.selectedItem,
 		price: state.items.price,
+		type: state.input.type,
+		message: state.input.message,
+		sign: state.input.sign,
 	}
 }
 
@@ -15,4 +18,4 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Item)
+export default connect(mapStateToProps, mapDispatchToProps)(Pay)

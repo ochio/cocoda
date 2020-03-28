@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import * as actions from '../actions/actions';
 import SelectedItem from '../components/SelectedItem';
 
 const mapStateToProps = state => {
@@ -9,10 +8,4 @@ const mapStateToProps = state => {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		selectPrice: (price) => dispatch(actions.selectPrice(price)),
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SelectedItem)
+export default connect(mapStateToProps,null)(SelectedItem)

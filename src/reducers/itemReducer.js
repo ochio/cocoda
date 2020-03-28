@@ -1,7 +1,6 @@
 const initialState = {
 	selectedItem : 'drink',
 	price : '400',
-	isSubmitEnabled : true,
 }
 
 export const itemReducer = (state = initialState, action) => {
@@ -17,14 +16,6 @@ export const itemReducer = (state = initialState, action) => {
 			const newPrice = Object.assign({}, state);
 			newPrice.price = price
 			return newPrice;
-
-		case 'CHECKED':
-			const canSubmit = action.payload.isSubmitEnabled;
-			const validateSubmit = Object.assign({}, state,{
-				isSubmitEnabled: canSubmit
-			});
-			console.log(validateSubmit.isSubmitEnabled);
-			return validateSubmit
 
 		default:
 			return state;
