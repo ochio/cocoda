@@ -49,7 +49,7 @@
 }
 
 .gift {
-  width: 345px;
+  max-width: 345px;
   margin: 0 0 25px;
 }
 
@@ -89,6 +89,7 @@
 }
 
 .textInput {
+  padding-right: 15px;
   &_item {
     display: flex;
     flex-direction: column;
@@ -104,7 +105,6 @@
     }
   }
   &_textArea {
-    width: 321px;
     height: 130px;
     padding: 12px;
     margin-bottom: 25px;

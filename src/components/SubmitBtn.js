@@ -23,12 +23,13 @@ const InnerBtn = styled.button`
 	padding: 19px 0;
 	font-size: 1.8rem;
 	color: #ffffff;
+	border-color: unset;
 	border-radius: 4px;
 	${ props => props.disabled ? css`
 			background: #d9d9d9
 	`:css`
 	background:${ props => color[props.colorType]}`
-};
+	};
 `
 
 class SubmitBtn extends Component{

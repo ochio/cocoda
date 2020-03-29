@@ -1,8 +1,8 @@
 .selectedItem {
   display: flex;
-  width: 345px;
   &_img {
     width: 72px;
+    height: 72px;
   }
   &_detail {
     flex: 1;

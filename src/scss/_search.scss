@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    font-size: 1rem;
     color: #fff;
     white-space: nowrap;
   }
@@ -45,6 +46,7 @@
     display: flex;
     width: 90px;
     height: 90px;
+    border: none;
   }
   &_drink {
     background-image: url(../img/category_drink.png);

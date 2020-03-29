@@ -1,7 +1,7 @@
 const initialState = {
-	type : 'Foryou',
-	message : 'a',
-	sign: 'aa',
+	type : '',
+	message : '',
+	sign: '',
 }
 
 export const inputReducer = (state = initialState, action) => {

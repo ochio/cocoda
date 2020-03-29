@@ -19,7 +19,6 @@ class Pay extends Component{
 			price:this.props.price,
 			name:ItemsJson.filter(val =>
 				val.className === this.props.item)[0],
-			num:'',
 			limit_y:'',
 			limit_m:'',
 			security:'',
@@ -45,9 +44,9 @@ class Pay extends Component{
 	}
 
 	canSubmit = () => {
-		const { num, limit_y, limit_m, security } = this.state;
+		const { limit_y, limit_m, security } = this.state;
 		let validInput = false;
-		if(num&&limit_y&&limit_m&&security.length===3){
+		if(limit_y&&limit_m&&security.length===3){
 			validInput = true
 		}else{
 			validInput = false
@@ -92,12 +91,12 @@ class Pay extends Component{
 								<span className="how_head">カード番号</span>
 								<input className="how_input how_cardNum" type="text" name="num" pattern="\d*" placeholder="0000 0000 0000 0000" onChange={(e) => this.handleChange(e)}/>
 							</label>
-							<label className="how_label">
+							<div className="how_label">
 								<span className="how_head">有効期限</span>
 								<div>
-									<input className="how_input how_limit" type="num" name="limit_y" placeholder="mm" onChange={(e) => this.handleChange(e)}/>月/<input className="how_input how_limit" type="num_m" name="limit_m" placeholder="yy" onChange={(e) => this.handleChange(e)}/>まで有効
+									<input className="how_input how_limit" type="text" pattern="\d*" name="limit_y" placeholder="mm" onChange={(e) => this.handleChange(e)}/>月/<input className="how_input how_limit" type="text" pattern="\d*" name="limit_m" placeholder="yy" onChange={(e) => this.handleChange(e)}/>年まで有効
 								</div>
-							</label>
+							</div>
 							<label className="how_label">
 								<span className="how_head">セキュリティーコード</span>
 								<input className="how_input how_code" type="text" name="security" placeholder="3桁の数字" onChange={(e) => this.handleChange(e)}/>

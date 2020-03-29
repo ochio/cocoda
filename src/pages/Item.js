@@ -40,7 +40,6 @@ class Item extends Component {
 		date.setMonth(date.getMonth() + 1);
 		date.setFullYear(date.getFullYear() + 1);
 
-
     return(
 			<div className="itemWrap">
 				<Title  name="商品詳細" />

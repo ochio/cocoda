@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {withRouter} from "react-router-dom";
+import styled, {css} from 'styled-components';
 
 import IconHome from '../img/icon_home.svg'
 import IconHistory from '../img/icon_history.svg'
@@ -14,25 +16,49 @@ const IconComponent03 = () => {
 	return <img src={IconMypage} alt="マイページ" />
 }
 
+const Li = styled.li`
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	width: 33.3%;
+	font-size: 1rem;
+	${props => props.close && css`
+		background: #d9d9d9
+	`}
+	${props => props.open && css`
+		cursor:pointer
+	`}
+`;
+
 class Menu extends Component{
+	constructor(props){
+		super(props);
+		this.handleClick = this.handleClick.bind(this)
+	}
+	handleClick(){
+		this.props.history.push({
+			pathname: `/`,
+		})
+	}
+
 	render(){
 		return (
 			<ul className="menu">
-				<li className="menu_list">
+				<Li open onClick={this.handleClick}>
 					<IconComponent01 />
 					ホーム
-				</li>
-				<li className="menu_list">
+				</Li>
+				<Li close>
 					<IconComponent02 />
 					履歴
-				</li>
-				<li className="menu_list">
+				</Li>
+				<Li close>
 					<IconComponent03 />
 					マイページ
-				</li>
+				</Li>
 			</ul>
 		)
 	}
 }
 
-export default Menu
+export default withRouter(Menu)

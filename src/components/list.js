@@ -52,8 +52,8 @@ class List extends Component {
 
 		const carousel = ItemsJson.map((json, index) => {
 			return (
-			<div key={index} className={`list list_${json.className}`}>
-				<button onClick={() => this.handleFuncs(json)} className="list_link">
+			<div key={index} className={`list list_${json.className}`} onClick={() => this.handleFuncs(json)} >
+				<button className="list_link">
 					<div className="list_cover">
 						<p>{json.name}</p>
 					</div>

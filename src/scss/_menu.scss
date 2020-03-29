@@ -4,13 +4,8 @@
   z-index: 999;
   display: flex;
   width: 100%;
-  padding: 32px 0 5px 0;
+  height: 49px;
+  padding: 0px 0 5px 0;
   text-align: center;
   background: #fcfcfc;
-  &_list {
-    display: flex;
-    flex-direction: column;
-    width: 33.3%;
-    font-size: 1rem;
-  }
 }

@@ -12,6 +12,8 @@ class History extends Component{
 				selectedItem:json.className
 			}
 		})
+		window.scrollTo(0, 0)
+
 	}
 
 	render(){
@@ -37,7 +39,7 @@ class History extends Component{
 					{items.map((item,index) => {
 						let json = ItemsJson.filter(unit => unit.className === item)[0]
 						return (
-							<div key={index}　className="history_inner" onClick={() => this.handleClick(json)}>
+							<div key={index} className="history_inner" onClick={() => this.handleClick(json)}>
 								<img src={`${process.env.PUBLIC_URL}/img/history_${item}.png`} alt={item} className="history_img" />
 								<p className="history_name">{json.historyText}</p>
 								<p className="history_company">{json.company}</p>
