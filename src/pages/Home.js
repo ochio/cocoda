@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import Title from '../components/Title';
 import SimpleSlider from  '../components/Slider';
-import List from '../components/List';
+// import List from '../components/List';
+import List from '../containers/List';
 import Menu from '../components/Menu';
 import History from '../components/History'
 

@@ -4,10 +4,14 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import Login from './pages/Login'
 import Home from './pages/Home'
-import Item from './pages/Item'
-import Message from './pages/Message'
-import Preview from './pages/Preview'
-import Pay from './pages/Pay'
+// import Item from './pages/Item'
+import Item from './containers/Item'
+// import Message from './pages/Message'
+import Message from './containers/Message'
+// import Preview from './pages/Preview'
+import Preview from './containers/Preview'
+// import Pay from './pages/Pay'
+import Pay from './containers/Pay'
 
 import './scss/style.scss';
 

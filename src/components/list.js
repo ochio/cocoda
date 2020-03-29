@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {withRouter} from "react-router-dom";
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
@@ -21,11 +20,9 @@ class List extends Component {
 	}
 
 	handleClick(json){
+		this.props.selectItem(json.className)
 		this.props.history.push({
 			pathname: `/item/${json.id}`,
-			state:{
-				selectedItem:json.className
-			}
 		})
 	}
 
@@ -78,4 +75,4 @@ class List extends Component {
   }
 }
 
-export default withRouter(List)
+export default List

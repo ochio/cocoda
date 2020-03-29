@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 
 import Title from '../components/Title';
 import Process from '../components/Process';
-import SelectedItem from '../components/SelectedItem';
+// import SelectedItem from '../components/SelectedItem';
+import SelectedItem from '../containers/SelectedItem';
+import SubmitBtn from '../components/SubmitBtn';
 
 import CardsJson from '../json/cards';
 
@@ -26,28 +28,18 @@ for(let i = 0; i < CardsJson.length; i++){
 }
 
 class Preview extends Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			item: this.props.location.state.item,
-			price: this.props.location.state.price,
-			type: this.props.location.state.type,
-			message: this.props.location.state.message,
-			sign: this.props.location.state.sign,
-		}
-	}
-
 	previewCard(){
+		const  {message, type, sign} = this.props
 		const prev = CardsJson.filter(card =>
-			card.name === this.state.type)[0]
+			card.name === type)[0]
 		return (
 			<div className="preview">
 				<div className="preview_img">
 					<img src={imgObj[prev.name]} alt={prev.category}/>
 				</div>
 				<div className="preview_text">
-					<p className="preview_message">{this.state.message}</p>
-					<p className="preview_sign"><span className="preview_sign-bold">From</span>:{this.state.sign}</p>
+					<p className="preview_message">{message}</p>
+					<p className="preview_sign"><span className="preview_sign-bold">From</span>:{sign}</p>
 				</div>
 			</div>
 		)
@@ -56,10 +48,6 @@ class Preview extends Component{
 	handleToPay = () =>{
 		this.props.history.push({
 			pathname:'/pay',
-			state:{
-				item:this.state.item,
-				price:this.state.price,
-			}
 		})
 	}
 
@@ -69,16 +57,15 @@ class Preview extends Component{
 			<div className="previewWrap">
 				<Title name="プレビュー"/>
 				<Process />
-				<SelectedItem 
-					item={this.state.item} 
-					price={this.state.price}/>
+				<SelectedItem />
 				<div className="created" >
 					<p className="heading">作成したカード</p>
 					{this.previewCard()}
 				</div>
-				<button type="submit" onClick={this.handleToPay}>
-				この内容で決定、決済へ進む
-				</button>
+				<SubmitBtn
+					buttonType={"black"}
+					onClick={this.handleToPay}
+					text="この内容で決定、決済へ進む"/>
 			</div>
 		)
 	}

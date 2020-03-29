@@ -7,17 +7,17 @@ import History from '../components/History';
 
 import ItemsJson from '../json/items';
 
+
 class Item extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
 			error : "",
 			isSubmitEnabled: true,
-			selectedItem :this.props.location.state.selectedItem,
-			price:''
+			selectedItem :this.props.selectedItem,
 		}
 	}
-	
+
 	handleSubmit(e){
 		this.setState({
 			isSubmitEnabled : e.target.checked ? false : true
@@ -27,24 +27,12 @@ class Item extends Component {
 	handleToSettingPage = () => {
     this.props.history.push({
 			pathname:'/message',
-			state:{
-				item:this.state.selectedItem,
-				price:this.state.price
-			}
-		})
-	}
-
-	handleSelect(e){
-		const price = e.target.value;
-		const key = e.target.name;
-
-		this.setState({
-			...this.state,
-			[key]:price
 		})
 	}
 	
   render(){
+		console.log("props",this.props);
+		console.log("state",this.state);
 		const {params} = this.props.match;
 		const id = parseInt(params.id, 10);
 		const target = ItemsJson.filter(item => item.id === `${id}`)[0];
@@ -66,11 +54,11 @@ class Item extends Component {
 					<div className="priceSelect">
 						<p className="priceSelect_text">金額を選ぶ</p>
 						<form name="price" className="priceSelect_list">
-							<input id="2,000" type="radio" name="price" value="2,000" className="priceSelect_radio" onClick={(e)=>this.handleSelect(e)}/>
+							<input id="2,000" type="radio" name="price" value="2,000" className="priceSelect_radio" onClick={(e)=>this.props.selectPrice(e.target.value)}/>
 							<label htmlFor="2,000" className="priceSelect_choice">2,000円<span className="priceSelect_tax">(税込)</span></label>
-							<input id="3,500" type="radio" name="price" value="3,500" className="priceSelect_radio" onClick={(e)=>this.handleSelect(e)}/>
+							<input id="3,500" type="radio" name="price" value="3,500" className="priceSelect_radio" onClick={(e)=>this.props.selectPrice(e.target.value)}/>
 							<label htmlFor="3,500" className="priceSelect_choice">3,500円<span className="priceSelect_tax">(税込)</span></label>
-							<input id="10,000" type="radio" name="price" value="10,000" className="priceSelect_radio" onClick={(e)=>this.handleSelect(e)}/>
+							<input id="10,000" type="radio" name="price" value="10,000" className="priceSelect_radio" onClick={(e)=>this.props.selectPrice(e.target.value)}/>
 							<label htmlFor="10,000" className="priceSelect_choice">10,000円<span className="priceSelect_tax">(税込)</span></label>
 						</form>
 					</div>
@@ -97,7 +85,7 @@ class Item extends Component {
 								<label><input type="checkbox" name="agree" value="agreed" className="rule_agreeBtn" onClick={e => this.handleSubmit(e)}/>利用規約に同意する</label>
 							</div>
 							{this.state.error}
-							<button type="submit" className="rule_submit" disabled={this.state.isSubmitEnabled} onClick={this.handleToSettingPage} >
+							<button type="button" className="rule_submit" disabled={this.state.isSubmitEnabled} onClick={this.handleToSettingPage} >
 							このギフトを送る
 							</button>
 						</form>

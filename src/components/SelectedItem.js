@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
 import ItemsJson from '../json/items';
 
 class SelectedItem extends Component{
 	render(){
-		const { item } = this.props
-		const target = ItemsJson.filter(content =>
-			content.className === item)[0];
+		const item = this.props.selectedItem;
+		const price = this.props.price
+		const target = ItemsJson.filter(content => content.className === item)[0]
 
 		return(
 			<div className="gift">
@@ -16,7 +15,7 @@ class SelectedItem extends Component{
 					<div className="selectedItem_detail">
 						<p className="selectedItem_name">{target.company}ギフトカード</p>
 						<p className="selectedItem_company">{target.company}</p>
-						<p className="selectedItem_price">{this.props.price}円<span className="selectedItem_price-tax">(税込)</span></p>
+						<p className="selectedItem_price">{price}円<span className="selectedItem_price-tax">(税込)</span></p>
 					</div>
 				</div>
 			</div>
