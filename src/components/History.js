@@ -39,8 +39,8 @@ class History extends Component{
 						return (
 							<div key={index}　className="history_inner" onClick={() => this.handleClick(json)}>
 								<img src={`${process.env.PUBLIC_URL}/img/history_${item}.png`} alt={item} className="history_img" />
-								{/* <p className="history_name">{json.historyText}</p>
-								<p className="history_company">{json.company}</p> */}
+								<p className="history_name">{json.historyText}</p>
+								<p className="history_company">{json.company}</p>
 								<p className="history_price">¥1,000</p>
 							</div>
 						)
